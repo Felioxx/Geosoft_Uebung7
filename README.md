@@ -2,6 +2,9 @@
 
 Unser Dockerhub: https://hub.docker.com/repository/docker/felioxx/nodeserver
 
-Der Server ist auf localhost 3001 erreichbar.
+Nutzung: docker pull felioxx/nodeserver
+         docker run -p 3001:3000 felioxx/nodeserver
+
+Der Server ist auf localhost:3001 erreichbar.
 
 Gruppenmitglieder: Felix Disselkamp, Philipp Mundinger

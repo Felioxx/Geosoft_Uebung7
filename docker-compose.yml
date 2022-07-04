@@ -1,0 +1,31 @@
+version: "3"
+services:
+  appservice:
+    image: felioxx/nodeserver
+    build: .
+    ports:
+      - "3001:3000"
+    depends_on:
+      - mongo
+    networks:
+      - default
+  mongo:
+    image: mongo # to be retrieved from dockerhub
+    ports:
+      - "27017:27017" # forward mongod port
+    networks:
+      - deafult
+    volumes:
+      - ./mongodb:/data/db
+    mongoexpressservice:
+      image: mongo-express
+      restart: always
+      ports:
+        - '8081:8081'
+      depends_on:
+        - mongo
+      networks:
+        - default
+networks:
+  default:
+      driver: bridge
